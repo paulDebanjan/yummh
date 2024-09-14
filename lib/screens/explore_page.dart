@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../api/mock_yummy_service.dart';
 import '../components/restaurant_section.dart';
+import '../components/category_section.dart';
 
 class ExplorePage extends StatelessWidget {
   //1
@@ -27,16 +29,18 @@ class ExplorePage extends StatelessWidget {
           final posts = snapshot.data?.categories ?? [];
           // TODO: Replace this with restaurant section
           // TODO: Wrap in a ListView
-
+          //1
           return ListView(
+            //2
             shrinkWrap: true,
+            //3
             scrollDirection: Axis.vertical,
+            //4
             children: [
               RestaurantSection(restaurants: restaurants),
-              Container(
-                height: 300,
-                color: Colors.green,
-              ),
+              // TODO: Add Category Section
+              CategorySection(categories: categories),
+              //TODO: Add Post Section
               Container(
                 height: 300,
                 color: Colors.orange,
