@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'constants.dart';
 import 'home.dart';
 
 void main() {
-  // 1
   runApp(const Yummy());
 }
 
 class Yummy extends StatefulWidget {
-  // TODO: Setup default theme
-
-  // 2
   const Yummy({super.key});
 
   @override
@@ -18,22 +15,30 @@ class Yummy extends StatefulWidget {
 }
 
 class _YummyState extends State<Yummy> {
-  // TODO: Add changeTheme above here
   ThemeMode themeMode = ThemeMode.light;
-  ColorSelection  colorSelected = ColorSelection.green;
+  ColorSelection colorSelected = ColorSelection.pink;
+
+  void changeThemeMode(bool useLightMode) {
+    setState(() {
+      themeMode = useLightMode
+          ? ThemeMode.light //
+          : ThemeMode.dark;
+    });
+  }
+
+  void changeColor(int value) {
+    setState(() {
+      colorSelected = ColorSelection.values[value];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     const appTitle = 'Yummy';
 
-    // TODO: Setup default theme
-
-    //3
     return MaterialApp(
       title: appTitle,
-      //debugShowCheckedModeBanner: false, // Uncomment to remove Debug banner
-      debugShowCheckedModeBanner: false,
-      // TODO: Add theme
+      debugShowCheckedModeBanner: false, // Uncomment to remove Debug banner
       themeMode: themeMode,
       theme: ThemeData(
         colorSchemeSeed: colorSelected.color,
@@ -45,29 +50,12 @@ class _YummyState extends State<Yummy> {
         useMaterial3: true,
         brightness: Brightness.dark,
       ),
-
-      // TODO: Apply Home widget
-
-      // 4
       home: Home(
+        appTitle: appTitle,
         changeTheme: changeThemeMode,
         changeColor: changeColor,
         colorSelected: colorSelected,
-      )
+      ),
     );
-  }
-
-  void changeThemeMode(bool useLightMode){
-    setState(() {
-      print('Theme Mode: $useLightMode');
-      themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
-      print('Theme: $themeMode');
-
-    });
-  }
-  void changeColor(int color){
-    setState(() {
-      colorSelected = ColorSelection.values[color];
-    });
   }
 }
