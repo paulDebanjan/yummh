@@ -32,6 +32,7 @@ class CategorySection extends StatelessWidget {
           SizedBox(
             height: 275,
             child: ListView.builder(
+              scrollDirection: Axis.horizontal,
               itemCount: categories.length,
               itemBuilder: (context, index) {
                 //6
