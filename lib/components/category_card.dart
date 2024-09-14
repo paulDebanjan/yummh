@@ -58,7 +58,7 @@ class CategoryCard extends StatelessWidget {
           ),
           //TODO: Add ListTile Widget
           ListTile(
-            //1xxx
+            //1
             title: Text(
               category.name,
               style: textTheme.titleSmall,
