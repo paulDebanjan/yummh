@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/restaurant.dart';
+import '../screens/restaurant_page.dart';
 
 class RestaurantLandscapeCard extends StatefulWidget {
   final Restaurant restaurant;
@@ -72,7 +73,12 @@ class _RestaurantLandscapeCardState extends State<RestaurantLandscapeCard> {
             ),
             onTap: () {
               // ignore: avoid_print
-              print('Tap on ${widget.restaurant.name}');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RestaurantPage(restaurant: widget.restaurant),
+                )
+              );
             },
           ),
         ],

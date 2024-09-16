@@ -12,11 +12,11 @@ class PostSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 16.0, bottom: 8.0),
             child: Text(
               'Friend\'s Activity',
@@ -37,7 +37,7 @@ class PostSection extends StatelessWidget {
             //4
             scrollDirection: Axis.vertical,
             //5
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: posts.length,
             //6
             itemBuilder: (context, index) {
