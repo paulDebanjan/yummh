@@ -5,14 +5,19 @@ import '../components/restaurant_section.dart';
 import '../components/category_section.dart';
 import '../components/post_section.dart';
 
-class ExplorePage extends StatelessWidget {
-  //1
-  final mockService = MockYummyService();
+class ExplorePage extends StatefulWidget {
 
   ExplorePage({
     super.key
   });
 
+  @override
+  State<ExplorePage> createState() => _ExplorePageState();
+}
+
+class _ExplorePageState extends State<ExplorePage> {
+  //1
+  final mockService = MockYummyService();
 
   @override
   Widget build(BuildContext context) {
