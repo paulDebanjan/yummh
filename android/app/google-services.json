@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "592056707853",
+    "project_id": "web-projects-738ba",
+    "storage_bucket": "web-projects-738ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592056707853:android:7844be135fb3b1a50c1e44",
+        "android_client_info": {
+          "package_name": "com.gyanaloy.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChnXb4J5HGJLBNmzNsXHZcY1-MZ7RaDqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

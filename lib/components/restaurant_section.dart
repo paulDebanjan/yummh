@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yummh/models/cart_manager.dart';
+import 'package:yummh/models/order_manager.dart';
+import 'package:yummh/screens/restaurant_page.dart';
 //1
 import 'restaurant_landscape_card.dart';
 import '../models/restaurant.dart';
@@ -6,10 +9,14 @@ import '../models/restaurant.dart';
 class RestaurantSection extends StatelessWidget {
   //2
   final List<Restaurant> restaurants;
+  final OrderManager orderManager;
+  final CartManager cartManager;
 
   const RestaurantSection({
     super.key,
     required this.restaurants,
+    required this.orderManager,
+    required this.cartManager,
   });
 
 
@@ -39,7 +46,12 @@ class RestaurantSection extends StatelessWidget {
               itemBuilder: (context, index) {
                 return SizedBox(
                   width: 300,
-                  child:RestaurantLandscapeCard(restaurant: restaurants[index])
+                  child:RestaurantLandscapeCard(restaurant: restaurants[index], onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RestaurantPage(restaurant: restaurants[index], orderManager: orderManager, cartManager: cartManager))
+                    );
+                  },)
                 );
               }
             )

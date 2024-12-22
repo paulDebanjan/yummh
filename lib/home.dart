@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'models/cart_manager.dart';
+import 'models/order_manager.dart';
 import 'components/color_button.dart';
 import 'components/theme_button.dart';
 import 'constants.dart';
 import 'screens/explore_page.dart';
+import 'screens/myorders_page.dart';
+
 
 class Home extends StatefulWidget {
   const Home({
     super.key,
+    required this.cartManager,
+    required this.orderManager,
     required this.changeTheme,
     required this.changeColor,
     required this.colorSelected,
     required this.appTitle,
   });
 
+  final CartManager cartManager;
+  final OrderManager orderManager;
   final ColorSelection colorSelected;
   final void Function(bool useLightMode) changeTheme;
   final void Function(int value) changeColor;
@@ -46,13 +54,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final pages = [
       // TODO: Replace with ExplorePage
-      ExplorePage(),
-      const Center(
-        child: Text(
-          'Order Page',
-          style: TextStyle(fontSize: 32.0),
-        ),
+      ExplorePage(
+        cartManager: widget.cartManager,
+        orderManager: widget.orderManager,
       ),
+      MyOrdersPage(orderManager: widget.orderManager),
       const Center(
         child: Text(
           'Account Page',
